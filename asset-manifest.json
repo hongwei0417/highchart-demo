@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/highchart-demo/static/css/main.5f361e03.chunk.css",
-    "main.js": "/highchart-demo/static/js/main.9ef988c0.chunk.js",
-    "main.js.map": "/highchart-demo/static/js/main.9ef988c0.chunk.js.map",
-    "runtime-main.js": "/highchart-demo/static/js/runtime-main.eb50a76f.js",
-    "runtime-main.js.map": "/highchart-demo/static/js/runtime-main.eb50a76f.js.map",
+    "main.css": "/highchart-demo/static/css/main.523f09c5.chunk.css",
+    "main.js": "/highchart-demo/static/js/main.d1aa2776.chunk.js",
+    "main.js.map": "/highchart-demo/static/js/main.d1aa2776.chunk.js.map",
+    "runtime-main.js": "/highchart-demo/static/js/runtime-main.d9caa8a2.js",
+    "runtime-main.js.map": "/highchart-demo/static/js/runtime-main.d9caa8a2.js.map",
     "static/css/2.de424728.chunk.css": "/highchart-demo/static/css/2.de424728.chunk.css",
-    "static/js/2.69b2123a.chunk.js": "/highchart-demo/static/js/2.69b2123a.chunk.js",
-    "static/js/2.69b2123a.chunk.js.map": "/highchart-demo/static/js/2.69b2123a.chunk.js.map",
+    "static/js/2.4e7a9da9.chunk.js": "/highchart-demo/static/js/2.4e7a9da9.chunk.js",
+    "static/js/2.4e7a9da9.chunk.js.map": "/highchart-demo/static/js/2.4e7a9da9.chunk.js.map",
     "index.html": "/highchart-demo/index.html",
-    "precache-manifest.862f68c10aee12704135775ad2c3979f.js": "/highchart-demo/precache-manifest.862f68c10aee12704135775ad2c3979f.js",
+    "precache-manifest.6270870b47a9a044524988f9b8660a82.js": "/highchart-demo/precache-manifest.6270870b47a9a044524988f9b8660a82.js",
     "service-worker.js": "/highchart-demo/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/highchart-demo/static/css/2.de424728.chunk.css.map",
-    "static/css/main.5f361e03.chunk.css.map": "/highchart-demo/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.69b2123a.chunk.js.LICENSE.txt": "/highchart-demo/static/js/2.69b2123a.chunk.js.LICENSE.txt"
+    "static/css/main.523f09c5.chunk.css.map": "/highchart-demo/static/css/main.523f09c5.chunk.css.map",
+    "static/js/2.4e7a9da9.chunk.js.LICENSE.txt": "/highchart-demo/static/js/2.4e7a9da9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.eb50a76f.js",
+    "static/js/runtime-main.d9caa8a2.js",
     "static/css/2.de424728.chunk.css",
-    "static/js/2.69b2123a.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.9ef988c0.chunk.js"
+    "static/js/2.4e7a9da9.chunk.js",
+    "static/css/main.523f09c5.chunk.css",
+    "static/js/main.d1aa2776.chunk.js"
   ]
 }
