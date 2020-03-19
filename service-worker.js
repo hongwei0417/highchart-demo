@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/highchart-demo/precache-manifest.6270870b47a9a044524988f9b8660a82.js"
+  "/highchart-demo/precache-manifest.a8f45c4cc59771576caab49744fc0b72.js"
 );
 
 self.addEventListener('message', (event) => {
