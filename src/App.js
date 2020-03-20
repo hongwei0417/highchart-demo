@@ -1,52 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import { Button, InputGroup, FormControl, DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap'
+import { Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap'
+import axios from 'axios'
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 require('highcharts/modules/exporting')(Highcharts)
 
 
 class App extends Component {
+
   state = {
-    options: {
-      title: {
-        text: '台中市月平均氣溫'
-      },
+    options: null
+  }
 
-      subtitle: {
-        text: '此資訊由交通部氣象局提供'
-      },
-
-      xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        title: {
-          text: "月份"
-        }
-      },
-
-      series: [{
-          type: 'column',
-          colorByPoint: true,
-          data: [16.6, 17.3, 19.6, 23.1, 26.0, 27.6, 28.6, 28.3, 27.4, 25.2, 21.9, 18.1],
-          showInLegend: false
-      }],
-
-
-      yAxis: {
-        title: {
-          text: "溫度°C"
-        }
-      },
-
-      exporting: {
-        buttons: {
-          contextButton: {
-            align: 'left'
-          }
-        }
-      }
-    }
+  componentDidMount = async () => {
+    const res = await axios.get('https://lunar-geography-271613.appspot.com/getData') // GCP後端取得資料
+    this.setState({options: res.data.options})
   }
 
   trans_month = (i) => {
@@ -69,7 +39,7 @@ class App extends Component {
       newOptions.series[0].data[selectMonth] = temp
       this.setState({ options: newOptions })
     } else {
-      alert("輸入錯誤!")
+      alert("請確定輸入正確!")
     }
   }
   
@@ -79,9 +49,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header d-flex justify-content-center">
-          <InputGroup className="mb-3 w-50">
+          <InputGroup className="mb-3 w-25">
             <FormControl
-              placeholder="溫度"
+              placeholder="輸入溫度"
               onChange={this.setText}
             />
             <InputGroup.Append>
@@ -91,7 +61,7 @@ class App extends Component {
                 variant="outline-light"
                 defalut="1"
               >
-                {
+                { options ? 
                   options.xAxis.categories.map((value, key) => {
                     return (
                       <Dropdown.Item 
@@ -103,17 +73,18 @@ class App extends Component {
                       </Dropdown.Item>
                     )
                   })
-                }
+                : null}
               </DropdownButton>
             </InputGroup.Append>
             <InputGroup.Append>
               <Button variant="outline-warning" onClick={this.setData}>修改</Button>
             </InputGroup.Append>
           </InputGroup>
+          
           <HighchartsReact
             ref="chartRef"
             highcharts={Highcharts}
-            options={this.state.options}
+            options={options}
             allowChartUpdate={true}
             updateArgs={[true, true, true]}
           />
