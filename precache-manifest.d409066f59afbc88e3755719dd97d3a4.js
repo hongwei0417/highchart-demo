@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ef198c63800aa407419ab041c3e355ba",
+    "revision": "f2d98660837d81a3f4250b04b206ca90",
     "url": "/highchart-demo/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/highchart-demo/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "5e139228a36ae2661256",
+    "revision": "17b676bd95a517f20fb4",
     "url": "/highchart-demo/static/css/main.7c421f3c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/highchart-demo/static/js/2.5e92a369.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5e139228a36ae2661256",
-    "url": "/highchart-demo/static/js/main.e4d6fd3f.chunk.js"
+    "revision": "17b676bd95a517f20fb4",
+    "url": "/highchart-demo/static/js/main.f3b6af4e.chunk.js"
   },
   {
     "revision": "12e134d5e9ee2d0713b9",
