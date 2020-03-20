@@ -80,7 +80,9 @@ class App extends Component {
               <Button variant="outline-warning" onClick={this.setData}>修改</Button>
             </InputGroup.Append>
           </InputGroup>
-          
+
+          { options ? null : <div>取得資料中...</div>}
+            
           <HighchartsReact
             ref="chartRef"
             highcharts={Highcharts}
