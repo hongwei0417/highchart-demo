@@ -25,30 +25,39 @@
         "text": "月份"
       }
     },
-    "series": [
-      {
-        "type": "column",
-        "colorByPoint": true,
-        "data": [
-          16.6,
-          17.3,
-          19.6,
-          23.1,
-          26,
-          27.6,
-          28.6,
-          28.3,
-          27.4,
-          25.2,
-          21.9,
-          18.1
-        ],
-        "showInLegend": false
-      }
-    ],
+    "series": [{
+      "name": "AvgTemp",
+      "type": "column",
+      "colorByPoint": true,
+      "data": [
+        16.6,
+        17.3,
+        19.6,
+        23.1,
+        26,
+        27.6,
+        28.6,
+        28.3,
+        27.4,
+        25.2,
+        21.9,
+        18.1
+      ],
+      "showInLegend": false
+    }],
     "yAxis": {
       "title": {
         "text": "溫度°C"
+      }
+    },
+    "tooltip": {
+      "valueSuffix": " °C"
+    },
+    "plotOptions": {
+      "column": {
+        "dataLabels": {
+          "enabled": true
+        }
       }
     },
     "exporting": {

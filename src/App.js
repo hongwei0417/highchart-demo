@@ -11,6 +11,7 @@ require('highcharts/modules/exporting')(Highcharts)
 class App extends Component {
 
   state = {
+    active: false, //允許送出
     options: null
   }
 
@@ -24,35 +25,95 @@ class App extends Component {
     return categories[i]
   }
 
+  setTemp = (e) => {
+    const { selectMonth } = this.state
+    let newTemp = parseFloat(e.target.value)
+    let active = this.checkInput(newTemp, selectMonth)
+
+    this.setState({
+      active,
+      temp: newTemp
+    })
+  }
+
+  setText = (type, e) => {
+    this.setState({ [type]: e.target.value })
+  }
+
+  saveText = (type) => {
+    const { options } = this.state
+    let newOptions = options
+    newOptions[type].text = this.state[type]
+    this.setState({ options: newOptions })
+  } 
+
   setMonth = (key, e) => {
-    this.setState({ selectMonth: key })
+    const { temp } = this.state
+    let active = this.checkInput(temp, key)
+    this.setState({
+      active,
+      selectMonth: key
+    })
   }
 
-  setText = (e) => {
-    this.setState({ temp: parseFloat(e.target.value) })
-  }
-
-  setData = () => {
+  saveData = () => {
     const { temp, selectMonth, options } = this.state
-    if(!(isNaN(temp)) && selectMonth) {
-      let newOptions = options
-      newOptions.series[0].data[selectMonth] = temp
-      this.setState({ options: newOptions })
-    } else {
-      alert("請確定輸入正確!")
+    let newOptions = options
+    newOptions.series[0].data[selectMonth] = temp
+    this.setState({ options: newOptions })
+  }
+
+  checkInput = (temp, month) => {
+    let active = false
+    if(!(isNaN(temp)) && temp != 0 && month) {
+      active = true
     }
+
+    return active
   }
   
 
   render() {
-    const { options, selectMonth } = this.state
+    const { active, options, selectMonth } = this.state
     return (
       <div className="App">
         <div className="App-header d-flex justify-content-center">
-          <InputGroup className="mb-3 w-25">
+            <InputGroup className="mb-3 w-50">
+              <InputGroup.Prepend>
+                <InputGroup.Text>Title</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                placeholder="輸入標題"
+                onChange={(e) => this.setText('title', e)}
+              />
+              <InputGroup.Append>
+              <Button
+                variant="outline-info"
+                onClick={() => this.saveText('title')}
+              >更新
+              </Button>
+              </InputGroup.Append>
+          </InputGroup>
+          <InputGroup className="mb-3 w-50">
+            <InputGroup.Prepend>
+              <InputGroup.Text>SubTitle</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="輸入子標題"
+              onChange={(e) => this.setText('subtitle', e)}
+            />
+            <InputGroup.Append>
+            <Button
+              variant="outline-info"
+              onClick={() => this.saveText('subtitle')}
+            >更新
+            </Button>
+            </InputGroup.Append>
+          </InputGroup>
+          <InputGroup className="mb-3 w-50">
             <FormControl
               placeholder="輸入溫度"
-              onChange={this.setText}
+              onChange={this.setTemp}
             />
             <InputGroup.Append>
               <DropdownButton
@@ -77,7 +138,12 @@ class App extends Component {
               </DropdownButton>
             </InputGroup.Append>
             <InputGroup.Append>
-              <Button variant="outline-warning" onClick={this.setData}>修改</Button>
+              <Button
+                variant="outline-warning"
+                onClick={this.saveData}
+                disabled={!active}
+              >更新
+              </Button>
             </InputGroup.Append>
           </InputGroup>
 
